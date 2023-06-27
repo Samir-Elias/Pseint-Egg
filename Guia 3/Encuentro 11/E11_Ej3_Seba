@@ -1,0 +1,156 @@
+////Necesitamos crear un sistema para una máquina de reciclaje de botellas automática. Dicha
+////	máquina nos pagará dinero por la cantidad de plástico reciclado. Tenemos que ingresar
+////	nuestro usuario y contraseña para que se nos cargue el saldo por sistema a nuestra cuenta.
+////	? Condición simple anidada: validaremos que el usuario sea "Albus_D", luego si esto es
+////	verdadero, validaremos si la contraseña es "caramelosDeLimon". Si la contraseña es
+////	correcta haremos que una variable llamada Login sea verdadera.
+////	? Bucle Mientras: Este bloque de validación de la contraseña lo encerraremos en un
+////	bucle Mientras para darle al usuario sólo 3 intentos para poner la contraseña.
+
+////	? Bucle Hacer Mientras(Repetir): Una vez que el login sea verdadero, accederemos al
+////	menú de opciones:
+////	o Ingresar botellas
+////	o Consultar saldo
+////  o Salir
+////? Ingresar Botellas: Primero preguntaremos cuántas botellas se va a ingresar al sistema.
+////	Una vez que tenemos el número vamos a usar un bucle para, a fin de ir ingresando
+////	cada botella. En cada ciclo del bucle se debe generar un número aleatorio entre 100 y
+////	3000 gr, que va a ser el peso de las botellas a reciclar (simulando que el usuario está
+////	ingresando botellas en la máquina). Una vez generado, según el peso del material,
+////	usaremos un condicional múltiple para asignarle un valor monetario:
+////	o Si es menos de 500 gr, corresponden $50
+////	o Si es entre 501 gr y 1500 gr, corresponden $125
+////	o Si es más de 1501 gr, corresponden $200
+////	Hecho esto, el programa debe informar al usuario por pantalla el valor que se le
+////	ofrece. Si el usuario acepta, lo acreditamos a su saldo, sino se debe devolver el
+////	material (sólo mostrar en pantalla "Devolviendo material"). Para esto usaremos un
+////	condicional doble.
+////	? Consultar saldo: revisaremos el valor monetario que tiene asignada la variable "saldo".
+////	? Tanto al terminar "Ingresar Botellas" como "Consultar Saldo" debe volver al menú
+////principal.
+Algoritmo Ejercicio_3_mentores
+	Definir usuario, contrasena, menu, aceptar,salida Como Caracter
+	Definir login Como Logico
+	Definir peso, precio, precioTotal, saldo Como Real
+	Definir intento, botella, b Como Entero
+	intento=0
+	precioTotal=0
+	saldo=0
+	Escribir "ingrese su Usuario"
+	Leer usuario
+	salida = ""
+	Si usuario="Albus_D" Entonces
+		Mientras intento<3 Hacer
+			Escribir "Ingrese su Contraseña"
+			Leer contrasena
+			intento = intento + 1
+			Si contrasena= "caramelosDeLimon" Entonces
+				login=Verdadero
+				
+				Mientras login=Verdadero Y salida = "" Hacer
+					Escribir "LOGIN"
+					Escribir "Ingrese una opcion"
+					Escribir "A - Ingresar botellas"
+					Escribir "B - Consultar saldo"
+					Escribir "C - salir"
+					Leer menu
+					menu = Mayusculas(menu)
+					Repetir
+						Si menu = "A" Entonces
+							Escribir "Ingrese la cantidad de botellas"
+							Leer botella
+							Para b = 1 hasta botella Hacer
+								peso = Aleatorio(100,3000)
+								si peso <= 500 Entonces
+									precio=50
+								FinSi
+								si peso > 500 y peso < 1500 Entonces
+									precio=125
+								FinSi
+								si peso > 1500 Entonces
+									precio=200
+								FinSi
+								precioTotal=precioTotal+precio
+								
+								Escribir "botella " b " pesa " peso " gramos"
+							FinPara
+							Escribir "el precio total es $ " precioTotal, ". ¿Acepta? S/N"
+							Leer aceptar
+							si aceptar="S"o aceptar="s" Entonces
+								Escribir "Saldo acreditado"
+								saldo=saldo+precioTotal
+								menu = ""
+							sino 
+								Escribir "Devolviendo material..."
+								menu = ""
+							FinSi
+						FinSi
+						Si menu = "B" Entonces
+							Escribir "Tu saldo es $" saldo
+							menu = ""
+						FinSi
+							
+											
+					Mientras Que menu = "A" O menu = "B"
+					
+					si menu = "c" o menu="C" Entonces
+						
+						Escribir "Cerrando..."
+						salida = "salida"
+					FinSi
+				FinMientras
+			Sino 	
+				Escribir "Contraseña incorrecta"
+			FinSi
+			Si salida = "salida" Entonces
+				intento = 3
+				Escribir "Gracias por elegirnos"
+			FinSi
+			Si intento = 3 Y salida = "" Entonces
+				Escribir "Ud ingresó la contraseña mal 3 veces y su usuario sera bloqueado"
+			FinSi
+		
+		
+		FinMientras
+	FinSi
+	
+		
+		
+		
+		
+		
+		
+//		Repetir
+//			Escribir "Desea ingresar botellas de PLASTICO?"
+//			Escribir "1_SI, 2_NO"
+//			Leer aux
+//			Si aux=1 Entonces
+//				Escribir "Ingrese el numero de botellas"
+//				Leer canT
+//				
+//			FinSi
+//			
+//			Consultar saldo
+//			Salir
+//		Mientras Que login=Verdadero 
+
+	
+	
+	
+//	Si usuario="A" Entonces
+//		Escribir "Ingrese su Contraseña"
+//		Leer contrasena
+//		Si contrasena= "C" Entonces
+//			login=Verdadero
+//		SiNo
+////			login=Falso
+////			intento=intento+1
+//			Mientras intento<3 Hacer
+//				Escribir "Contraseña incorrecta intente de nuevo"
+//				Leer contrasena
+//				intento=intento+1
+//			FinMientras
+//		FinSi
+//	FinSi
+//	Escribir login
+FinAlgoritmo

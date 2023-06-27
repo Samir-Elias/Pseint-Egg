@@ -1,0 +1,20 @@
+//Dada una secuencia de números ingresados por teclado que finaliza con un ?1, por
+//ejemplo: 5,3,0,2,4,4,0,0,2,3,6,0,......,-1; realizar un programa que calcule el promedio de los
+//	números ingresados. Suponemos que el usuario no insertará número negativos.
+Algoritmo Secuencia_de_numeros
+	Definir num, sum, prom, cv Como real
+	Escribir "Ingresar un numero"
+	leer num
+	sum=0
+	prom=0
+	cv=0
+	mientras num<>-1 Hacer
+		sum=sum+num
+//		Se le suma el numero ingresado en el loop a "sum" que esta estabilizado en 0.
+		cv=cv+1
+		Escribir "Ingresa otro numero"
+		leer num
+	FinMientras
+	prom=sum/cv
+	escribir "El promedio es ", prom
+FinAlgoritmo

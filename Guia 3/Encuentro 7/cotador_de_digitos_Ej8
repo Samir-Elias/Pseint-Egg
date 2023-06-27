@@ -1,0 +1,17 @@
+//Escribir un programa que calcule cuántos dígitos tiene un número entero positivo sin
+//convertirlo a cadena (pista: se puede hacer dividiendo varias veces entre 10). Nota:
+//		investigar la función trunc().
+Algoritmo cotador_de_digitos
+	Definir num, cd Como Enteros
+	cd=0
+	Escribir "Ingresar un numero"
+	Leer num
+	si num<0 Entonces
+		num=num*(-1)
+	FinSi
+	mientras num>0 Hacer
+		num=trunc(num/10)
+		cd=cd+1
+	FinMientras
+	Escribir "El numero tine ", cd, " digitos"
+FinAlgoritmo

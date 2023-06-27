@@ -1,0 +1,42 @@
+Algoritmo sin_titulo
+//////	Programar un juego donde la computadora elige un número al azar entre 1 y 10, y a
+//////continuación el jugador tiene que adivinarlo. La estructura del programa es la siguiente:
+//////	1o) El programa elige al azar un número n entre 1 y 10.
+//////	2o) El usuario ingresa un número x.
+//////	3o) Si x no es el número exacto, el programa indica si n es más grande o más pequeño que
+//////	el número ingresado.
+//////	4o) Repetimos desde 2) hasta que x sea igual a n.
+//////	El programa tiene que imprimir los mensajes adecuados para informarle al usuario qué
+//////	hacer y qué pasó hasta que adivine el número.
+//////	NOTA: Para generar un número aleatorio entre 1 y 10 se puede utilizar la función
+//////	Aleatorio(limite_inferior, limite_superior) de PseInt.
+
+	
+	Definir num,num2 Como Entero
+	
+	Escribir "El sistema elegirá un numero al azar entre 1 y 10, luego ud. deberá adivinarlo"
+	
+	num2 = Aleatorio(1,10)
+	
+	Repetir 	
+		Escribir "Ingrese un numero del 1 al 10 hasta adivinar"
+		Leer num
+		Si num > 10 o num < 1 Entonces
+			Escribir "El numero ingresado es incorrecto"
+		FinSi
+		
+		Si num < num2 Entonces
+			Escribir "El número que ingreso es menor"
+		Sino 
+			Escribir "El número que ingresó es mayor"
+		FinSi
+		
+	Mientras Que num <> num2 
+	
+	Escribir "Felicitaciones! ud adivinó el numero: ",num2
+	
+	
+	
+	
+	
+FinAlgoritmo
